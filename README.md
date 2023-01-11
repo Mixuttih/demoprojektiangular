@@ -57,3 +57,15 @@ import {MatIconModule} from '@angular/material/icon';
 ```
 
 Copy https://material.angular.io/components/toolbar/examples navigation toolbar example html to header.componen.html
+
+# Adding main page to site
+ng generate component mainpage
+
+Add mainpage to routing component https://angular.io/guide/router
+```
+import { MainpageComponent } from './mainpage/mainpage.component'
+
+const routes: Routes = [
+  { path: '', component: MainpageComponent }
+];
+```
