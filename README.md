@@ -7,7 +7,8 @@ https://angular.io/quick-start
 
 npm install -g @angular/cli
 
-npm init @angular myApp
+npm init @angular myApp /
+ng new myApp
 
 -use angular routing : yes
 
