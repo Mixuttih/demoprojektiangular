@@ -25,3 +25,6 @@ Open test application http://localhost:4200
 
 # Adding header component to application
 ng generate component header
+
+# Add angular material ui library to project
+ng add @angular/material
