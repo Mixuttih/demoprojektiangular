@@ -115,7 +115,7 @@ Add links to header component
 
 ```
     <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Main page</a>
-    <a routerLink="/Products" routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
+    <a routerLink="/products" routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
     <a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a>
     <a routerLink="/admin" routerLinkActive="active" ariaCurrentWhenActive="page">Admin</a>
 ```
