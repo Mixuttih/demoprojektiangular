@@ -14,6 +14,9 @@ import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdmincreateproductComponent } from './admincreateproduct/admincreateproduct.component';
 import { AdmineditproductComponent } from './admineditproduct/admineditproduct.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { AdmineditproductComponent } from './admineditproduct/admineditproduct.c
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

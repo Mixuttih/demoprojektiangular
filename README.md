@@ -121,3 +121,15 @@ Add links to header component
     <a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a>
     <a routerLink="/admin" routerLinkActive="active" ariaCurrentWhenActive="page">Admin</a>
 ```
+
+# Add admin create page
+
+Add form to admin create page https://material.angular.io/components/form-field/overview
+
+Import required components ex.
+
+```
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+```
