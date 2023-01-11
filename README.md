@@ -28,3 +28,9 @@ ng generate component header
 
 # Add angular material ui library to project
 ng add @angular/material
+
+# Modifying app.component.html
+```
+<app-header></app-header>
+<router-outlet></router-outlet>
+```
