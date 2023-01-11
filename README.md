@@ -81,7 +81,9 @@ const routes: Routes = [
 ];
 ```
 
-# Create Contact, Products, Product Info, Admin Site, Admin Create Product, Admin Edit Product components
+# Create components
+
+Create Contact, Products, Product Info, Admin Site, Admin Create Product, Admin Edit Product components
 ```
 ng generate component contact
 ng generate component products
