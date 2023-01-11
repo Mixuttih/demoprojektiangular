@@ -10,6 +10,7 @@ git clone https://github.com/OMATUNNUS/OMAPROJEKTI
 
 # Initialize angular project
 https://angular.io/quick-start
+
 https://angular.io/guide/setup-local
 
 ```
@@ -64,7 +65,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 ```
 
-Copy https://material.angular.io/components/toolbar/examples navigation toolbar example html to header.componen.html
+Copy https://material.angular.io/components/toolbar/examples navigation toolbar example html to header.component.html
 
 # Adding main page to site
 ```
@@ -78,4 +79,43 @@ import { MainpageComponent } from './mainpage/mainpage.component'
 const routes: Routes = [
   { path: '', component: MainpageComponent }
 ];
+```
+
+# Create Contact, Products, Product Info, Admin Site, Admin Create Product, Admin Edit Product components
+```
+ng generate component contact
+ng generate component products
+ng generate component productinfo
+ng generate component admin
+ng generate component admincreateproduct
+ng generate component admineditproduct
+```
+
+Add new components to router
+```
+import { ContactComponent } from './contact/contact.component'
+import { ProductsComponent } from './products/products.component'
+import { ProductinfoComponent } from './productinfo/productinfo.component'
+import { AdminComponent } from './admin/admin.component'
+import { AdmincreateproductComponent } from './admincreateproduct/admincreateproduct.component'
+import { AdmineditproductComponent } from './admineditproduct/admineditproduct.component'
+
+...
+const routes: Routes = [
+  { path: '', component: MainpageComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'product/:id', component: ProductinfoComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/product/create', component: AdmincreateproductComponent },
+  { path: 'admin/product/edit/:id', component: AdmineditproductComponent }
+```
+
+Add links to header component
+
+```
+    <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Main page</a>
+    <a routerLink="/Products" routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
+    <a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a>
+    <a routerLink="/admin" routerLinkActive="active" ariaCurrentWhenActive="page">Admin</a>
 ```
