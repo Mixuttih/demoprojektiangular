@@ -34,3 +34,26 @@ ng add @angular/material
 <app-header></app-header>
 <router-outlet></router-outlet>
 ```
+
+# Add material toolbar
+https://material.angular.io/components/toolbar/overview
+
+Import toolbar and icons components to app.module.ts
+
+```
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
+...
+
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule
+  ],
+
+```
+
+Copy https://material.angular.io/components/toolbar/examples navigation toolbar example html to header.componen.html
