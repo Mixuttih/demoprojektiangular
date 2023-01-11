@@ -129,7 +129,7 @@ Add form to admin create page https://material.angular.io/components/form-field/
 Import required components ex.
 
 ```
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 ```
