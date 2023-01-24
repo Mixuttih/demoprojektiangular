@@ -172,91 +172,9 @@ Example admin create page
 
 ![application architecture](CRUD.png)
 
-# Create Product Backend project
+# Create Product Backend project with TypeORM
 
-Initialize node js project
 ```
-npm init
-npm install typescript --save-dev
-npx tsc --init
-```
-
-# Install Express server
-
-Install dependencies
-```
-npm install express dotenv
-npm i --save-dev @types/express
-```
-
-Create index.ts file
-```
-import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const app: Express = express();
-const port = process.env.PORT;
-
-app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
-});
-
-app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
-});
-```
-
-Install development dependencies
-```
-npm install -D concurrently nodemon
-```
-Add start & build script to ```package.json```
-```
-  "scripts": {
-    "build": "npx tsc",
-    "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
-  }
-```
-
-Create environment variable file ```.env```
-```
-PORT=3000
-```
-
-Test application
-```
-npm run dev
-```
-
-# Create CRUD functions and REST paths to express
-```
-
-//List products
-app.get('/api/products', (req: Request, res: Response) => {
-  res.send('List products');
-});
-
-//Get product by id
-app.get('/api/product/:id', (req: Request, res: Response) => {
-  res.send('Get project ' + req.params.id);
-});
-
-//Create new product
-app.post('/api/product', (req: Request, res: Response) => {
-  res.send('Create new project');
-});
-
-//Update product by id
-app.put('/api/product/:id', (req: Request, res: Response) => {
-  res.send('Update project ' + req.params.id);
-});
-
-//Delete product by id
-app.delete('/api/product/:id', (req: Request, res: Response) => {
-  res.send('Delete project ' + req.params.id);
-});
-
+npm install -g typeorm
+typeorm init --express --name typeorm-express-sample --database mongodb
 ```
