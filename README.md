@@ -14,6 +14,12 @@ https://angular.io/quick-start
 https://angular.io/guide/setup-local
 
 ```
+Koulun koneilla tulee lisätä käyttäjän polku ympäristömuuttujaksi
+D:\Users\pekka.tamminen\AppData\Roaming\npm
+$env:Path += ';D:\Users\pekka.tamminen\AppData\Roaming\npm'
+```
+
+```
 npm install -g @angular/cli
 # If running in windows
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
