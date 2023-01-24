@@ -178,3 +178,22 @@ Example admin create page
 npm install -g typeorm
 typeorm init --express --name typeorm-express-sample --database mongodb
 ```
+
+Configure and test typeorm
+```
+npm install
+edit src/data-source.ts connection strings
+npm start
+```
+
+```
+export const AppDataSource = new DataSource({
+    type: "mongodb",
+    host: "asdasdvasdbsdfb.mongo.cosmos.azure.com",
+    username: "asdasdvasdbsdfb",
+    password: "****************************************",
+    port: 10255,
+    database: "test",
+    ssl: true,
+```
+
