@@ -322,3 +322,40 @@ Invoke-RestMethod -Method PUT -Uri "http://localhost:3000/products/$ID" -Body $E
 $ID = "63cfb91bf72edf3a14eb272e"
 Invoke-RestMethod -Method DELETE -Uri "http://localhost:3000/products/$ID"
 ```
+
+Moving data source connection to environment variable
+
+```
+import "reflect-metadata"
+import { DataSource } from "typeorm"
+import { Product } from "./entity/Product"
+import * as dotenv from "dotenv"
+dotenv.config();
+
+export const AppDataSource = new DataSource({
+    type: "mongodb",
+    host: process.env.host,
+    username: process.env.username,
+    password: process.env.password,
+    port: parseInt(process.env.port),
+    database: process.env.database,
+    ssl: Boolean(process.env.ssl),
+    synchronize: true,
+    logging: false,
+    entities: [Product],
+    migrations: [],
+    subscribers: [],
+})
+```
+
+Create .env and .template.env files. For .env file replace placeholders username password etc to production values. Make sure that ```.gitignore``` have ```.env``` in contents
+```
+type="mongodb"
+host="***.mongo.cosmos.azure.com"
+username="***"
+password="****"
+port=10255
+database="test"
+ssl=true
+```
+
