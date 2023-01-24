@@ -274,3 +274,5 @@ export class ProductController {
 
 }
 ```
+
+Replace UserController with ProductController in ```routes.ts```
