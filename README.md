@@ -171,3 +171,33 @@ Example admin create page
 # Anathomy of CRUD application, frontend & backend
 
 ![application architecture](CRUD.png)
+
+# Create Product Backend project
+
+Initialize node js project
+```
+npm init
+npm install typescript --save-dev
+npx tsc --init
+```
+
+# Install Express server
+
+Create index.ts file
+```
+import express, { Express, Request, Response } from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const app: Express = express();
+const port = process.env.PORT;
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Express + TypeScript Server');
+});
+
+app.listen(port, () => {
+  console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
+});
+```
