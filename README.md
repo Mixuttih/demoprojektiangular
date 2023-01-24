@@ -212,7 +212,7 @@ Install development dependencies
 ```
 npm install -D concurrently nodemon
 ```
-Add start & build script to package.json
+Add start & build script to ```package.json```
 ```
   "scripts": {
     "build": "npx tsc",
