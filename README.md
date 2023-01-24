@@ -323,6 +323,7 @@ $ID = "63cfb91bf72edf3a14eb272e"
 Invoke-RestMethod -Method DELETE -Uri "http://localhost:3000/products/$ID"
 ```
 
+# Environment variables
 Moving data source connection to environment variable
 
 ```
