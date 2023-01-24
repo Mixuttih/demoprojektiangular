@@ -4,7 +4,7 @@ import { Entity, ObjectIdColumn, ObjectID, Column, Generated } from "typeorm"
 export class Product {
 
     @ObjectIdColumn()
-    id: ObjectID
+    _id: string
 
     @Column()
     @Generated("uuid")

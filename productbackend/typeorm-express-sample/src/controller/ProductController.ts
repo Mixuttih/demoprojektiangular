@@ -11,11 +11,14 @@ export class ProductController {
     }
 
     async one(request: Request, response: Response, next: NextFunction) {
-        const id = request.params.id        
+        const id = request.params.id 
+        console.log(id);       
 
         const product = await this.productRepository.findOne({
-            where: { id }
+            where: { _id: id }
         })
+
+        console.log(product)
 
         if (!product) {
             return "unregistered product"
@@ -39,7 +42,7 @@ export class ProductController {
     async remove(request: Request, response: Response, next: NextFunction) {
         const id = request.params.id
 
-        let productToRemove = await this.productRepository.findOneBy({ id })
+        let productToRemove = await this.productRepository.findOneBy({ _id: id })
 
         if (!productToRemove) {
             return "this product not exist"
