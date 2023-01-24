@@ -3,7 +3,7 @@ import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "./data-source"
 import { Routes } from "./routes"
-import { User } from "./entity/User"
+import { Product } from "./entity/Product"
 
 AppDataSource.initialize().then(async () => {
 
@@ -30,20 +30,13 @@ AppDataSource.initialize().then(async () => {
     // start express server
     app.listen(3000)
 
-    // insert new users for test
+    // insert new test products
     await AppDataSource.manager.save(
-        AppDataSource.manager.create(User, {
-            firstName: "Timber",
-            lastName: "Saw",
-            age: 27
-        })
-    )
-
-    await AppDataSource.manager.save(
-        AppDataSource.manager.create(User, {
-            firstName: "Phantom",
-            lastName: "Assassin",
-            age: 24
+        AppDataSource.manager.create(Product, {
+            name: "Demo",
+            description: "Lorem ipsum",
+            price: 706.65,
+            category: "Laptop"
         })
     )
 
