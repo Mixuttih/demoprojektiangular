@@ -183,6 +183,11 @@ npx tsc --init
 
 # Install Express server
 
+Install dependencies
+```
+npm install express dotenv
+```
+
 Create index.ts file
 ```
 import express, { Express, Request, Response } from 'express';
