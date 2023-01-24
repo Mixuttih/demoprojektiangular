@@ -167,3 +167,7 @@ Example admin create page
   <button mat-flat-button color="primary"><mat-icon>check</mat-icon> Submit</button>
 </form>
 ```
+
+# Anathomy of CRUD application, frontend & backend
+
+![application architecture](CRUD.png)
