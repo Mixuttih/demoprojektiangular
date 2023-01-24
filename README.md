@@ -302,3 +302,21 @@ Add update route and controller
     action: "edit"
 }
 ```
+
+Test REST API
+```
+#Create new product
+Invoke-RestMethod -Method POST -Uri "http://localhost:3000/products" -Body @{name="value1";description="value2";price=123;category="value3"}
+
+#Find existing product
+$ID = "63cfba5d8b33e642ec2e71f0"
+Invoke-RestMethod -Method GET -Uri "http://localhost:3000/products/$ID"
+
+#Edit existing product
+$ID = "63cfba5d8b33e642ec2e71f0"
+Invoke-RestMethod -Method PUT -Uri "http://localhost:3000/products/$ID" -Body @{name="value4";description="value5";price=123;category="value3"}
+
+#Delete existing product
+$ID = "63cfb91bf72edf3a14eb272e"
+Invoke-RestMethod -Method DELETE -Uri "http://localhost:3000/products/$ID"
+```
