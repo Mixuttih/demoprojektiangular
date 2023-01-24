@@ -349,7 +349,7 @@ export const AppDataSource = new DataSource({
 })
 ```
 
-Create .env and .template.env files. For .env file replace placeholders username password etc to production values. Make sure that ```.gitignore``` have ```.env``` in contents
+Create ```.env``` and ```.template.env``` files. For ```.env``` file replace placeholders username password etc to production values. Make sure that ```.gitignore``` have ```.env``` in contents
 ```
 type="mongodb"
 host="***.mongo.cosmos.azure.com"
