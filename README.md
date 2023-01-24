@@ -221,6 +221,11 @@ Add start & build script to package.json
   }
 ```
 
+Create environment variable file ```.env```
+```
+PORT=3000
+```
+
 Test application
 ```
 npm run dev
