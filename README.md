@@ -139,3 +139,31 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 ```
+
+# Create page example
+
+Example admin create page
+```
+<form class="form">
+  <mat-form-field class="d-flex">
+      <mat-label>Product name</mat-label>
+      <input matInput required>
+  </mat-form-field>
+  <mat-form-field class="d-flex">
+      <mat-label>Product description</mat-label>
+      <textarea matInput required></textarea>
+  </mat-form-field>
+  <mat-form-field class="d-flex">
+      <mat-label>Price</mat-label>
+      <input matInput required type="number">
+  </mat-form-field>
+  <mat-form-field class="d-flex">
+      <mat-label>Category</mat-label>
+      <mat-select required>
+          <mat-option value="computer">Computer</mat-option>
+          <mat-option value="laptop">Laptop</mat-option>
+      </mat-select>
+  </mat-form-field>
+  <button mat-flat-button color="primary"><mat-icon>check</mat-icon> Submit</button>
+</form>
+```
