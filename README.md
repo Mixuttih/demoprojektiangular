@@ -186,6 +186,7 @@ npx tsc --init
 Install dependencies
 ```
 npm install express dotenv
+npm i --save-dev @types/express
 ```
 
 Create index.ts file
@@ -205,4 +206,22 @@ app.get('/', (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
 });
+```
+
+Install development dependencies
+```
+npm install -D concurrently nodemon
+```
+Add start & build script to package.json
+```
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+  }
+```
+
+Test application
+```
+npm run dev
 ```
