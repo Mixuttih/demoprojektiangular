@@ -276,3 +276,29 @@ export class ProductController {
 ```
 
 Replace UserController with ProductController in ```routes.ts```
+
+Add update route and controller
+```
+    async edit(request: Request, response: Response, next: NextFunction) {
+        const id = request.params.id
+        const { name, description, price, category } = request.body;
+
+        const product = Object.assign(new Product(), {
+            _id: id,
+            name,
+            description,
+            price,
+            category
+        })
+
+        return this.productRepository.save(product)
+    }
+```
+```
+, {
+    method: "put",
+    route: "/products/:id",
+    controller: ProductController,
+    action: "edit"
+}
+```

@@ -1,6 +1,7 @@
 import { AppDataSource } from '../data-source'
 import { NextFunction, Request, Response } from "express"
 import { Product } from "../entity/Product"
+import { ObjectID } from 'mongodb';
 
 export class ProductController {
 
@@ -11,14 +12,11 @@ export class ProductController {
     }
 
     async one(request: Request, response: Response, next: NextFunction) {
-        const id = request.params.id 
-        console.log(id);       
+        const id = request.params.id     
 
         const product = await this.productRepository.findOne({
-            where: { _id: id }
+            where: { _id: new ObjectID(id as string) }
         })
-
-        console.log(product)
 
         if (!product) {
             return "unregistered product"
@@ -42,7 +40,7 @@ export class ProductController {
     async remove(request: Request, response: Response, next: NextFunction) {
         const id = request.params.id
 
-        let productToRemove = await this.productRepository.findOneBy({ _id: id })
+        let productToRemove = await this.productRepository.findOneBy({ _id: new ObjectID(id as string) })
 
         if (!productToRemove) {
             return "this product not exist"
@@ -51,6 +49,21 @@ export class ProductController {
         await this.productRepository.remove(productToRemove)
 
         return "product has been removed"
+    }
+
+    async edit(request: Request, response: Response, next: NextFunction) {
+        const id = request.params.id
+        const { name, description, price, category } = request.body;
+
+        const product = Object.assign(new Product(), {
+            _id: id,
+            name,
+            description,
+            price,
+            category
+        })
+
+        return this.productRepository.save(product)
     }
 
 }

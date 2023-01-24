@@ -20,4 +20,9 @@ export const Routes = [{
     route: "/products/:id",
     controller: ProductController,
     action: "remove"
+}, {
+    method: "put",
+    route: "/products/:id",
+    controller: ProductController,
+    action: "edit"
 }]

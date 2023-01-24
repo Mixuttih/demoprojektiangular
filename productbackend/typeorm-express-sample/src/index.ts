@@ -30,15 +30,18 @@ AppDataSource.initialize().then(async () => {
     // start express server
     app.listen(3000)
 
+    const initialize_db = false
     // insert new test products
-    await AppDataSource.manager.save(
-        AppDataSource.manager.create(Product, {
-            name: "Demo",
-            description: "Lorem ipsum",
-            price: 706.65,
-            category: "Laptop"
-        })
-    )
+    if(initialize_db){
+        await AppDataSource.manager.save(
+            AppDataSource.manager.create(Product, {
+                name: "Demo",
+                description: "Lorem ipsum",
+                price: 706.65,
+                category: "Laptop"
+            })
+        )
+    }
 
     console.log("Express server has started on port 3000. Open http://localhost:3000/products to see results")
 

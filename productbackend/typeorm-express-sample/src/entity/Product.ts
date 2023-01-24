@@ -7,10 +7,6 @@ export class Product {
     _id: string
 
     @Column()
-    @Generated("uuid")
-    uuid: string
-
-    @Column()
     name!: string
 
     @Column()
