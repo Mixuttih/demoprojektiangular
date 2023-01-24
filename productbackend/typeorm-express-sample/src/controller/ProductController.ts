@@ -27,6 +27,7 @@ export class ProductController {
     async save(request: Request, response: Response, next: NextFunction) {
         const { name, description, price, category } = request.body;
 
+        console.log(request.body);
         const product = Object.assign(new Product(), {
             name,
             description,
@@ -55,7 +56,18 @@ export class ProductController {
         const id = request.params.id
         const { name, description, price, category } = request.body;
 
-        return this.productRepository.update(new ObjectID(id as string), {name, description, price, category})
+        const product = await this.productRepository.findOne({
+            where: { _id: new ObjectID(id as string) }
+        })
+
+        product.name = name
+        product.description = description
+        product.price = price
+        product.category = category
+
+        console.log(product);
+
+        return this.productRepository.save(product)
     }
 
 }
