@@ -1,18 +1,21 @@
 import { Entity, ObjectIdColumn, ObjectID, Column } from "typeorm"
 
 @Entity()
-export class User {
+export class Product {
 
     @ObjectIdColumn()
     id: ObjectID
 
     @Column()
-    firstName: string
+    name!: string
 
     @Column()
-    lastName: string
+    description!: string
 
     @Column()
-    age: number
+    price!: number
+
+    @Column()
+    category!: string
 
 }

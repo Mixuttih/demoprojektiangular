@@ -197,3 +197,20 @@ export const AppDataSource = new DataSource({
     ssl: true,
 ```
 
+Change user entity to product entity
+```
+    @ObjectIdColumn()
+    id: ObjectID
+
+    @Column()
+    name!: string
+
+    @Column()
+    description!: string
+
+    @Column()
+    price!: number
+
+    @Column()
+    category!: string
+```
