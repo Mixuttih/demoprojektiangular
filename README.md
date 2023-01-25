@@ -361,6 +361,7 @@ ssl=true
 ```
 
 # Create Config service
+* Tutorial: (https://angular-book.dev/ch10-01-preparing-configuration-file.html) *
 Create config service which returns application configurations to other components and service
 ```
 ng generate service config/config
@@ -411,6 +412,7 @@ export class ConfigService {
 More functional way: (https://angular-book.dev/ch10-01-preparing-configuration-file.html)
 
 # Creating Product service, & Product interface
+* Tutorial: (https://angular-book.dev/ch06-02-services.html) *
 
 Create Product service for product management (list, create, read, update, delete)
 ```
@@ -423,6 +425,7 @@ ng generate interface product/product
 ```
 
 # Create Product interface
+* Tutorial: (https://angular-book.dev/ch03-05-interfaces.html) *
 
 Edit ```product/product.ts```
 ```
@@ -435,6 +438,7 @@ export interface Product {
 }
 ```
 # Create Product service
+* Tutorial: (https://angular.io/guide/http) *
 Install and import dependencies in ```app.module.ts``` file
 ```
 ...
@@ -464,7 +468,8 @@ export class BackendService {
 ```
 
 # Product service functions
-CRUD functionalities
+* Tutorial: (https://angular.io/guide/http) *
+CRUD functionalities 
 ```
 listProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.backend + '/products')
