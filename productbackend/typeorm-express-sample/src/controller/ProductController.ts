@@ -2,10 +2,9 @@ import { AppDataSource } from '../data-source'
 import { NextFunction, Request, Response } from "express"
 import { Product } from "../entity/Product"
 import { ObjectID } from 'mongodb';
-
 export class ProductController {
 
-    private productRepository = AppDataSource.getRepository(Product)
+    private productRepository = AppDataSource.getRepository(Product);
 
     async all(request: Request, response: Response, next: NextFunction) {
         return this.productRepository.find()
@@ -27,7 +26,6 @@ export class ProductController {
     async save(request: Request, response: Response, next: NextFunction) {
         const { name, description, price, category } = request.body;
 
-        console.log(request.body);
         const product = Object.assign(new Product(), {
             name,
             description,
@@ -64,8 +62,6 @@ export class ProductController {
         product.description = description
         product.price = price
         product.category = category
-
-        console.log(product);
 
         return this.productRepository.save(product)
     }

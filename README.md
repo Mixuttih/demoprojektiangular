@@ -360,3 +360,19 @@ database="test"
 ssl=true
 ```
 
+# Creating Product service, Backend service & Product interface
+
+Create Product service for product management (list, create, read, update, delete)
+```
+ng generate service product/product
+```
+
+Create Product interface which tells what kind of properties Product haves
+```
+ng generate interface product/product
+```
+
+Create Backend service for http requests to backend rest api
+```
+ng generate service backend/backend
+```
