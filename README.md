@@ -8,6 +8,27 @@ Clone repository to your local machine and open Visual Studio Code
 git clone https://github.com/OMATUNNUS/OMAPROJEKTI
 ```
 
+* Phase 1
+  * Initialize angular project
+  * Angular components
+  * Angular routing
+  * Angular material ui
+* Phase 2
+  * Front-end & Back-end service communications
+  * CRUD Backends
+  * Creating TypeORM Express REST API
+  * Environment variables
+* Phase 3
+  * Creating services and interfaces in Angular
+  * Config service
+  * Angular http
+  * Creating Product service and interface with queries to REST API
+  * CORS in backend service
+* Phase 4
+  * Using angular ngFor in creating templates/views
+  * Using component functions to create interaction to buttons
+  * Creating UI functionalities
+
 # Initialize angular project
 https://angular.io/quick-start
 
