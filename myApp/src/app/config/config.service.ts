@@ -7,7 +7,7 @@ import { Config } from './config';
 })
 export class ConfigService {
   private configUrl = 'assets/config.json';
-  public config? : Config
+  public config : Config | undefined
 
   constructor(private http: HttpClient) { }
    
@@ -15,7 +15,7 @@ export class ConfigService {
     return this.http.get<Config>(this.configUrl);
   }
 
-  showConfig() {
+  loadConfig() {
     this.getConfig()
       .subscribe((data: Config) => this.config = {
           backend: data.backend
