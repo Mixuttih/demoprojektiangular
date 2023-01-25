@@ -11,7 +11,7 @@ export class ConfigService {
 
   public data: Config | undefined;
   private default: Config = {
-    backend: "http://localhost:4000"
+    backend: "http://localhost:3000"
   }
 
   constructor(private http: HttpClient) { }

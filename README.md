@@ -531,6 +531,7 @@ import * as cors from "cors"
 app.use(cors({origin: '*'}));
 ...
 ```
+Caution: DONT USE * on cors policy. Use in example ```app.use(cors({origin: 'http://localhost:4200, https://productionsite.io'}));```. In production environment no localhost should be defined.
 
 # Create Products page with listing in background service
 Edit ```products/products.component``` file to request product.service
