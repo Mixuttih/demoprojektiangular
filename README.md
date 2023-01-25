@@ -360,6 +360,21 @@ database="test"
 ssl=true
 ```
 
+# Create Config service
+Create config service which returns application configurations to other components and service
+```
+ng generate service config/config
+```
+```
+ng generate interface config/config
+```
+Create example config file ```asset/config.json```
+```
+{
+    "backend": "http://localhost:3000"
+}
+```
+
 # Creating Product service, Backend service & Product interface
 
 Create Product service for product management (list, create, read, update, delete)
@@ -388,4 +403,17 @@ export interface Product {
     price: number
     category: "Computer" | "Laptop";
 }
+```
+
+# Create Product backend service
+
+Install and import dependencies in ```app.module.ts``` file
+```
+...
+import { HttpClientModule } from '@angular/common/http';
+...
+  imports: [
+    BrowserModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule,
 ```
