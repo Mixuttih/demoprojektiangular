@@ -374,6 +374,13 @@ Create example config file ```asset/config.json```
     "backend": "http://localhost:3000"
 }
 ```
+Edit config interface file ```config/config.ts``` to include json property types
+```
+export interface Config {
+    backend: string
+}
+```
+
 
 # Creating Product service, Backend service & Product interface
 
