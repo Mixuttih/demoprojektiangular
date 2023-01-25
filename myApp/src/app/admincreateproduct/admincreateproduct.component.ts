@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BackendService } from '../backend/backend.service'
 
 @Component({
   selector: 'app-admincreateproduct',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./admincreateproduct.component.scss']
 })
 export class AdmincreateproductComponent {
+  constructor(backend: BackendService){
+    console.log(backend.getApi("/products").subscribe());
+  }
 
 }
