@@ -376,3 +376,16 @@ Create Backend service for http requests to backend rest api
 ```
 ng generate service backend/backend
 ```
+
+# Create Product interface
+
+Edit ```product/product.ts```
+```
+export interface Product {
+    _id: string
+    name: string
+    description: string
+    price: number
+    category: "Computer" | "Laptop";
+}
+```
