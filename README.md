@@ -407,7 +407,7 @@ export class ConfigService {
   }
 }
 ```
-# Creating Product service, Backend service & Product interface
+# Creating Product service, & Product interface
 
 Create Product service for product management (list, create, read, update, delete)
 ```
@@ -417,11 +417,6 @@ ng generate service product/product
 Create Product interface which tells what kind of properties Product haves
 ```
 ng generate interface product/product
-```
-
-Create Backend service for http requests to backend rest api
-```
-ng generate service backend/backend
 ```
 
 # Create Product interface
@@ -436,11 +431,7 @@ export interface Product {
     category: "Computer" | "Laptop";
 }
 ```
-
-# Create Product backend service
-
-THIS IS ONLY EXAMPLE for generating requests
-
+# Create Product service
 Install and import dependencies in ```app.module.ts``` file
 ```
 ...
@@ -452,7 +443,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
 ```
 
-Edit backend.service
+Edit product.service
 ```
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -466,62 +457,5 @@ export class BackendService {
   private backend = "http://localhost:3000"
 
   constructor(private http: HttpClient) { }
-  
-  getApi(url : string) {
-    return this.http.get<any>(this.backend + url)
-      .pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      );
-  }
-
-  postApi(url : string, data : object) {
-    return this.http.post<any>(this.backend + url, data)
-      .pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      );
-  }
-
-  putApi(url : string, data : object) {
-    return this.http.put<any>(this.backend + url, data)
-      .pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      );
-  }
-
-  patchApi(url : string, data : object) {
-    return this.http.patch<any>(this.backend + url, data)
-      .pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      );
-  }
-
-  deleteApi(url : string, data : object) {
-    return this.http.delete<any>(this.backend + url)
-      .pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      );
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
-    // Return an observable with a user-facing error message.
-    return throwError(() => new Error('Something bad happened; please try again later.'));
-  }
 }
 ```
-
-
-
