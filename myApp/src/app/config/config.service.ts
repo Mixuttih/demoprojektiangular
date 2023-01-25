@@ -1,24 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Config } from './config';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
   private configUrl = 'assets/config.json';
-  public config : Config | undefined
 
-  constructor(private http: HttpClient) { }
-   
-  getConfig() {
-    return this.http.get<Config>(this.configUrl);
+  public data: Config | undefined;
+  private default: Config = {
+    backend: "http://localhost:4000"
   }
 
-  loadConfig() {
-    this.getConfig()
-      .subscribe((data: Config) => this.config = {
-          backend: data.backend
-      });
+  constructor(private http: HttpClient) { }
+  
+  load(): Promise<Config> {
+    return new Promise<Config>(resolve => {
+      this.http.get(this.configUrl).subscribe(
+        response => {
+          console.log('using server-side configuration')
+          this.data = Object.assign({}, this.default, response || {})
+          resolve(this.data)
+        },
+        () => {
+          console.log('using default configuration')
+          this.data = Object.assign({}, this.default || {})
+          resolve(this.data)
+        }
+      );
+    });
   }
 }

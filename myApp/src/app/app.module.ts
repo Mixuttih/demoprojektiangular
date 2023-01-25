@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,6 +22,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { ConfigService } from './config/config.service';
+
+export function setupAppConfigServiceFactory(
+  service: ConfigService
+): Function {
+  return () => service.load();
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +55,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    {
+        provide: APP_INITIALIZER,
+        useFactory: setupAppConfigServiceFactory,
+        deps: [
+            ConfigService
+        ],
+        multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

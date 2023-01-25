@@ -9,12 +9,10 @@ import { Product } from './product';
   providedIn: 'root'
 })
 export class ProductService {
-  private backend = "http://localhost:3000"
+  private backend
 
   constructor(private http: HttpClient, private configService: ConfigService) {
-    configService.loadConfig();
-    console.log(configService.config);
-    this.backend = configService.config?.backend || this.backend;
+    this.backend = configService.data?.backend;
   }
 
 
