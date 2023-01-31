@@ -1,27 +1,27 @@
 <div class="container mt-4">
     <h1>Create product</h1>
     <div class="d-flex justify-content-center">
-        <form class="form">
+        <form class="form" [formGroup]="createProductForm" (ngSubmit)="onSubmit()">
             <mat-form-field class="d-flex">
                 <mat-label>Product name</mat-label>
-                <input matInput required>
+                <input matInput required formControlName="name">
             </mat-form-field>
             <mat-form-field class="d-flex">
                 <mat-label>Product description</mat-label>
-                <textarea matInput required></textarea>
+                <textarea matInput required formControlName="description"></textarea>
             </mat-form-field>
             <mat-form-field class="d-flex">
                 <mat-label>Price</mat-label>
-                <input matInput required type="number">
+                <input matInput required type="number" formControlName="price">
             </mat-form-field>
             <mat-form-field class="d-flex">
                 <mat-label>Category</mat-label>
-                <mat-select required>
+                <mat-select required formControlName="category">
                     <mat-option value="computer">Computer</mat-option>
                     <mat-option value="laptop">Laptop</mat-option>
                 </mat-select>
             </mat-form-field>
-            <button mat-flat-button color="primary"><mat-icon>check</mat-icon> Submit</button>
+            <button mat-flat-button color="primary" type="submit"><mat-icon>check</mat-icon> Submit</button>
         </form>
     </div>
 </div>

@@ -1,4 +1,10 @@
 <div class="container mt-4">
     <h1>Admin page</h1>
     <a routerLink="/admin/product/create" routerLinkActive="active" ariaCurrentWhenActive="page">Create product</a>
+    <br/><br/>
+    <h2>Edit products</h2>
+    <div *ngFor="let product of products; let i = index">
+        <a href="/admin/product/edit/{{product._id}}">{{product.name}}</a>
+        <br/>
+    </div>
 </div>

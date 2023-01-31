@@ -32,22 +32,22 @@ export class ProductService {
   }
 
   readProduct(id: string): Observable<Product> {
-    return this.http.get<Product>(this.backend + '/product/' + id)
+    return this.http.get<Product>(this.backend + '/products/' + id)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
   }
 
-  updateProduct(product: Product): Observable<Product[]> {
-    return this.http.put<Product[]>(this.backend + '/products', product)
+  updateProduct(id: string, product: Product): Observable<Product[]> {
+    return this.http.put<Product[]>(this.backend + '/products/' + id, product)
       .pipe(
         catchError(this.handleError)
       );
   }
 
   deleteProduct(id: string): Observable<Product> {
-    return this.http.delete<Product>(this.backend + '/product/' + id)
+    return this.http.delete<Product>(this.backend + '/products/' + id)
       .pipe(
         retry(2),
         catchError(this.handleError)

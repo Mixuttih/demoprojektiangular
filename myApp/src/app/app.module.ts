@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ConfigService } from './config/config.service';
 
@@ -53,7 +54,8 @@ export function setupAppConfigServiceFactory(
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
