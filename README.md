@@ -596,3 +596,62 @@ Create example layout for ```Products.component.html```
     </div>
 </div>
 ```
+
+# Create admin create product functions
+How to create form control for application: https://angular.io/guide/reactive-forms
+
+Import Reactive Forms to ```app.module.ts```
+```
+...
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+...
+    ReactiveFormsModule
+...
+```
+
+Generate form control and form group for each input/text etc. Code example bellow.
+```
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+  });
+```
+In html template define form control and groups directives
+```
+<form class="form" [formGroup]="createProductForm">
+<mat-form-field class="d-flex">
+    <mat-label>Product name</mat-label>
+    <input matInput required formControlName="name">
+</mat-form-field>
+```
+
+Create onSubmit function
+```
+#Template
+<form class="form" [formGroup]="createProductForm" (ngSubmit)="onSubmit()">
+
+#ts
+  onSubmit(): void {
+    let data : Product = {
+      _id: "",
+      name: this.createProductForm.value.name ?? "",
+      description: this.createProductForm.value.description ?? "",
+      price: this.createProductForm.value.price ?? 0,
+      category: this.createProductForm.value.category ?? "Computer"
+    }
+    
+    this.productService.createProduct(data)
+      .subscribe(
+        (data: Product[]) => console.log(data)
+      );
+      /* TODO redirect user to edit form after successfull creation */ 
+  }
+```
+
+# Create edit product function
+How to get parameter from routes: https://angular.io/guide/router#getting-route-information
+
+# Create delete product function
