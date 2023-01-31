@@ -560,6 +560,8 @@ app.use(cors({origin: '*'}));
 Caution: DONT USE * on cors policy. Use in example ```app.use(cors({origin: 'http://localhost:4200, https://productionsite.io'}));```. In production environment no localhost should be defined.
 
 # Create Products page with listing in background service
+Angular structural directives allows using ex. ```NgIf, NgForOf, NgSwitch``` directly in elements: https://angular.io/guide/built-in-directives#listing-items-with-ngfor
+
 Edit ```products/products.component``` file to request product.service
 ```
 import { OnInit, Component } from '@angular/core';
