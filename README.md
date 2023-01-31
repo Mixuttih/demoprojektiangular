@@ -630,10 +630,10 @@ In html template define form control and groups directives
 
 Create onSubmit function
 ```
-#Template
+#admincreateproduct.component.html
 <form class="form" [formGroup]="createProductForm" (ngSubmit)="onSubmit()">
 
-#ts
+#admincreateproduct.component.ts
   onSubmit(): void {
     let data : Product = {
       _id: "",
@@ -647,11 +647,61 @@ Create onSubmit function
       .subscribe(
         (data: Product[]) => console.log(data)
       );
-      /* TODO redirect user to edit form after successfull creation */ 
+      /* TODO redirect user to edit form after successful creation */ 
   }
 ```
 
 # Create edit product function
 How to get parameter from routes: https://angular.io/guide/router#getting-route-information
 
+Edit ```admineditproduct.component.ts``` to get id from route parameters
+```
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+...
+export class AdmineditproductComponent {
+  public id : string = ""
+  ...
+  constructor(private productService: ProductService, private route: ActivatedRoute){
+    route.params.subscribe(params => {
+      this.id = params['id'];
+      this.loadData()
+    })
+  }
+
+  loadData(): void {
+    #TODO: Load data from REST API
+  }
+```
+
+Use form control ```setValue()``` to replace input values with data from REST API: https://angular.io/guide/reactive-forms#replacing-a-form-control-value
+```
+    this.productService.readProduct(this.id).subscribe(
+      (data: Product) => {
+        this.createProductForm.setValue(
+          {
+            name: data.name,
+            description: data.description,
+            price: data.price,
+            category: data.category
+          }
+        )
+      }
+    )
+```
+
 # Create delete product function
+Event binding in Angular: https://angular.io/guide/event-binding
+
+Create event binding click to Remove button in Edit product page.
+
+```
+#admineditproduct.component.html
+<button mat-flat-button color="accent" (click)="deleteProduct()"><mat-icon>delete</mat-icon> Remove</button>
+
+#admineditproduct.component.ts
+  deleteProduct(): void {
+    this.productService.deleteProduct(this.id)
+      .subscribe();
+      /* TODO redirect user to edit form after successful creation */ 
+  }
+```

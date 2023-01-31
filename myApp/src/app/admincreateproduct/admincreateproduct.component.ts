@@ -32,6 +32,6 @@ export class AdmincreateproductComponent {
       .subscribe(
         (data: Product[]) => console.log(data)
       );
-      /* TODO redirect user to edit form after successfull creation */ 
+      /* TODO redirect user to edit form after successful creation */ 
   }
 }

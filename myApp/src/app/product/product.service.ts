@@ -46,7 +46,7 @@ export class ProductService {
       );
   }
 
-  deleteProduct(id: string): Observable<Product> {
+  deleteProduct(id: string): Observable<any> {
     return this.http.delete<Product>(this.backend + '/products/' + id)
       .pipe(
         retry(2),

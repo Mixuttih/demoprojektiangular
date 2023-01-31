@@ -44,7 +44,7 @@ export class AdmineditproductComponent {
   deleteProduct(): void {
     this.productService.deleteProduct(this.id)
       .subscribe();
-      /* TODO redirect user to edit form after successfull creation */ 
+      /* TODO redirect user to edit form after successful creation */ 
   }
 
   onSubmit(): void {
@@ -60,6 +60,6 @@ export class AdmineditproductComponent {
       .subscribe(
         (data: Product[]) => console.log(data)
       );
-      /* TODO redirect user to edit form after successfull creation */ 
+      /* TODO redirect user to edit form after successful creation */ 
   }
 }
