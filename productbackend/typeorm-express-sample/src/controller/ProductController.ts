@@ -45,9 +45,9 @@ export class ProductController {
             return "this product not exist"
         }
 
-        await this.productRepository.remove(productToRemove)
+        const product = await this.productRepository.remove(productToRemove)
 
-        return "product has been removed"
+        return {}
     }
 
     async edit(request: Request, response: Response, next: NextFunction) {
@@ -58,12 +58,16 @@ export class ProductController {
             where: { _id: new ObjectID(id as string) }
         })
 
-        product.name = name
-        product.description = description
-        product.price = price
-        product.category = category
+        if (product) {
+            product.name = name ?? ""
+            product.description = description ?? ""
+            product.price = price ?? 0
+            product.category = category ?? "Computer"
+            return this.productRepository.save(product)
+        } else {
+            return {}
+        }
 
-        return this.productRepository.save(product)
     }
 
 }

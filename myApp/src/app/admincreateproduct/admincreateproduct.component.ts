@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ProductService } from '../product/product.service';
 import { Product } from '../product/product';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-admincreateproduct',
@@ -16,7 +17,7 @@ export class AdmincreateproductComponent {
     category: new FormControl<"Computer" | "Laptop">('Computer')
   });
 
-  constructor(private productService: ProductService){
+  constructor(private productService: ProductService, private router: Router){
   }
 
   onSubmit(): void {
@@ -30,7 +31,10 @@ export class AdmincreateproductComponent {
     
     this.productService.createProduct(data)
       .subscribe(
-        (data: Product[]) => console.log(data)
+        (data: Product[]) => {
+          console.log(data)
+          this.router.navigate(['/admin']);
+        }
       );
       /* TODO redirect user to edit form after successful creation */ 
   }

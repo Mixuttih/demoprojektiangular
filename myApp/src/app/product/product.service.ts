@@ -47,11 +47,7 @@ export class ProductService {
   }
 
   deleteProduct(id: string): Observable<any> {
-    return this.http.delete<Product>(this.backend + '/products/' + id)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
+    return this.http.delete<any>(this.backend + '/products/' + id);
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -19,7 +19,7 @@ export class AdmineditproductComponent {
     category: new FormControl<"Computer" | "Laptop">('Computer')
   });
 
-  constructor(private productService: ProductService, private route: ActivatedRoute){
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router){
     route.params.subscribe(params => {
       this.id = params['id'];
       this.loadData()
@@ -43,7 +43,9 @@ export class AdmineditproductComponent {
 
   deleteProduct(): void {
     this.productService.deleteProduct(this.id)
-      .subscribe();
+      .subscribe({next: data => {
+        this.router.navigate(['/admin']);
+      }});
       /* TODO redirect user to edit form after successful creation */ 
   }
 
@@ -58,8 +60,10 @@ export class AdmineditproductComponent {
     
     this.productService.updateProduct(this.id, data)
       .subscribe(
-        (data: Product[]) => console.log(data)
+        (data: Product[]) => {
+          console.log(data)
+          this.router.navigate(['/admin']);
+        }
       );
-      /* TODO redirect user to edit form after successful creation */ 
   }
 }
